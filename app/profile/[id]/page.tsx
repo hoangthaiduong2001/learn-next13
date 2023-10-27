@@ -1,7 +1,19 @@
 "use client";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export default function ProfileId() {
   const params = useParams();
-  return <h1>This is person with id: {params.id}</h1>;
+  const router = useRouter();
+  return (
+    <div>
+      <h1>This is person with id: {params.id}</h1>
+      <h1
+        onClick={() => {
+          router.push("/");
+        }}
+      >
+        Back to page index
+      </h1>
+    </div>
+  );
 }
